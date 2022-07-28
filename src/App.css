@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+.card {
+  height: 200px;
+  display: block;
+}
+.img-prod img {
+  width: 147px;
+  float: left;
+  padding: 19px;
+}
+.subm-button {
+  width: 147px;
+  float: right;
+  background-color: #40bb5e;
+  left: -22px;
+  position: relative;
+  padding: 5px;
+  color: #fff;
+  border-radius: 12px;
+}
+li {
+  text-align: left;
+}
+ul {
+  width: 50%;
+  float: left;
+}
+svg {
+  font-size: 27px;
+  padding: 20px;
+  margin-top: -20px;
+}
