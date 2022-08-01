@@ -12,7 +12,7 @@ function App(props) {
       <Routes>
       <Route path="/" element={<Visitor newOrder={props.newOrder} orders={props.orders} state={props.state}/>}></Route>
         <Route path="/visitor" element={<Visitor newOrder={props.newOrder} orders={props.orders} state={props.state}/>}></Route>
-        <Route path="/waiter" element={<Waiter/>}></Route>
+        <Route path="/waiter" element={<Waiter server={props.server} addOrder={props.addOrder}/>}></Route>
       </Routes>
       </BrowserRouter>
 

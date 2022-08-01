@@ -22,7 +22,7 @@ let Card = (props)=>{
             <p>{props.state.desc}</p>
         </div>
         <div className="price">
-            <p ref={priceRef}>{props.state.price}</p>
+            <p ref={priceRef}>{props.state.price} Euro</p>
         </div>
         <div className="subm-button" onClick={goZakaz}>Заказать</div>
         

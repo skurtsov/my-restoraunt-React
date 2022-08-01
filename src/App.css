@@ -36,10 +36,6 @@
     transform: rotate(360deg);
   }
 }
-.card {
-  height: 200px;
-  display: block;
-}
 .img-prod img {
   width: 147px;
   float: left;
@@ -54,6 +50,11 @@
   padding: 5px;
   color: #fff;
   border-radius: 12px;
+  transition-duration: 0.3s;
+}
+.App {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 li {
   text-align: left;
@@ -65,5 +66,22 @@ ul {
 svg {
   font-size: 27px;
   padding: 20px;
-  margin-top: -20px;
+}
+svg.svg-inline--fa.fa-check {
+  color: green;
+}
+svg.svg-inline--fa.fa-pen-to-square {
+  color: #485cbf;
+}
+
+.img-prod {
+  width: 147px;
+}
+.card {
+  height: 169px;
+  display: block;
+  /* border-top: 1px solid #dbdbdb; */
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 16px;
+  padding-top: 16px;
 }
