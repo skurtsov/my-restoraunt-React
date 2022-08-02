@@ -1,5 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 
 let Order = (props) => {
@@ -14,7 +16,6 @@ let Order = (props) => {
         return <li key={index}>{el}</li>
        })
        
-
 return(
     <div>
           <div class="card">
@@ -27,7 +28,7 @@ return(
             </ul>
             </div>
             <div class="accept">
-                <i class="fa-solid fa-check"></i>
+            <FontAwesomeIcon icon={faCheck} />
                 <i class="fa-solid fa-pen-to-square"></i>
             </div>
 
