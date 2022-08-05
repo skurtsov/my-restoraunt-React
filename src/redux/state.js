@@ -1,6 +1,5 @@
 import { renderTree } from "../render";
-//import q from "https://localhost/restoran/data.json";
-let state={ 
+let state_old={ 
     card_state :[{
         id:1,
         image: 'https://www.maggi.ru/data/images/recept/img640x500/recept_6538_hkut.jpg',
@@ -19,12 +18,18 @@ let state={
     orders :[0],
     ordersServer:[]
 }
+let resp='';
+let xhr = new XMLHttpRequest();
 
+ xhr.open("GET","http://localhost/restoran/data.php",false);
+ xhr.onreadystatechange = function() {
+   if (xhr.readyState==4 && xhr.status==200)
+     console.log(xhr.responseText);
+     resp = xhr.responseText;
+ };
+ xhr.send(null);
+let state = JSON.parse(resp)
 
-var json = require('https://makemesites.com/test/data.json');
-
-console.log('it is worrrr:'+JSON.parse(json))
-debugger;
 //Waiter
 export let addOrder=(order)=>{
     state.ordersServer = [];
