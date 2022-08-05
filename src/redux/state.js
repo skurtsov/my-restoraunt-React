@@ -1,4 +1,5 @@
 import { renderTree } from "../render";
+//import q from "https://localhost/restoran/data.json";
 let state={ 
     card_state :[{
         id:1,
@@ -16,37 +17,63 @@ let state={
     }
     ],
     orders :[0],
-    ordersServer:[],
+    ordersServer:[]
 }
+
+
+var json = require('https://makemesites.com/test/data.json');
+
+console.log('it is worrrr:'+JSON.parse(json))
+debugger;
+//Waiter
 export let addOrder=(order)=>{
     state.ordersServer = [];
-       // console.log("hello")
-      // let order_obj =  order.split(';');
-       //let r  ='{"stolik":"2","zakaz":"Red wine,Lyulia kebap"};{"stolik":"1","zakaz":"Red wine,Red wine"};{"stolik":"15","zakaz":"Lyulia kebap,Lyulia kebap,Lyulia kebap,Lyulia kebap"};'
-      let order_valid = order.substring(0, order.length - 1);
+       let order_valid = order.substring(0, order.length - 1);
        let order_obj = order_valid.split(';')
-      //let extra =[];
+
       
       Object.keys(order_obj).forEach(function(key) {
         state.ordersServer.push(JSON.parse(order_obj[key]))
-         // console.log()
       })
-
-    //    state.ordersServer = ordern.map((el)=>{
-    //       try {
-    //        return JSON.parse(el);
-    //   } catch (err) {
-    //     console.log('error', err);
-    //   }
-    // })
-       // state.ordersServer.push(order);
         renderTree(state);
 }
 
+export let plusOrder = (order_name) =>{
 
+state.orders.filter(function(val) {
+    return val.order == order_name;
+  })[0].kol +=1 ;
+  console.log(state.orders);
+  renderTree(state)
+
+}
+export let minusOrder = (order_name) =>{
+    state.orders.filter(function(val) {
+        return val.order == order_name;
+      })[0].kol -=1 ;
+      if(state.orders.filter(function(val) {
+        return val.order == order_name;
+      })[0].kol ==0){
+      const index = state.orders.findIndex((el) => el.order === order_name);
+      console.log('index is:' +index)
+      state.orders.splice(index,1)
+      }
+      console.log(state.orders);
+      renderTree(state)
+     
+     };
+    
 export let newOrder =(order, price)=>{
- state.orders.push(order);
- state.orders[0] = state.orders[0]+parseFloat(price);
+    let ord_o = {
+        order: order,
+        price: price,
+        kol:1,
+        id: Math.floor(Math.random() * 999999)
+    }
+ state.orders.push(ord_o);
+
+ //state.orders[0] = state.orders[0]+parseFloat(price);
+ console.log("state resp :"+ state.orders)
  renderTree(state)
 // debugger;
 }
