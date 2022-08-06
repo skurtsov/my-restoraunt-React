@@ -27,7 +27,7 @@ useEffect(() => {
   }, []);
 //get_orders();
 let ordersToShow = props.server.map((el)=>{
-  return <Order stolik={el.stolik} zakaz={el.zakaz}/>
+  return <Order stolik={el.stolik} zakaz={el.zakaz} id={el.id}/>
 })
 return(
     <div>

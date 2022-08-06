@@ -73,7 +73,6 @@ export let newOrder =(order, price)=>{
         order: order,
         price: price,
         kol:1,
-        id: Math.floor(Math.random() * 999999)
     }
  state.orders.push(ord_o);
 

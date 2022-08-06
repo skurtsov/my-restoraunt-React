@@ -10,8 +10,19 @@ let Visitor = (props) => {
     const id = urlParams.get('id')
     const arrQ = [];
     let cards = props.state.map((el)=>{
+       
         return <Card  plus ={props.plus} minus={props.minus} newOrder={props.newOrder} orders={props.orders} state={el}/>;
     })
+    let meat = ()=>{
+    let cards = props.state.map((el)=>{
+        if(el.cat =="meat"){
+        return <Card  plus ={props.plus} minus={props.minus} newOrder={props.newOrder} orders={props.orders} state={el}/>;
+        }
+    })
+    console.log(props.state)
+    alert('meat');
+}
+
      let ords = props.orders.map((elq,index)=>{
          return <li key={index}>{elq?.kol +'x '+ elq?.order}</li>
          debugger
@@ -19,7 +30,8 @@ let Visitor = (props) => {
     let sendOrder = ()=>{
         var xhr = new XMLHttpRequest();
 
-        var body = "stolik="+id+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order);
+        var body = "id="+Math.floor(Math.random() * 999999)+"&stolik="+id+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order);
+        
         console.log(props.orders);
         xhr.open("POST", 'http://localhost/restoran/index.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -35,7 +47,7 @@ return(
       {cards}
       {props.orders.map(q=> q.order)}
       <br />
-      <div className="button">Цена -  {props.orders[0]}</div>
+      <div className="button" onClick={meat}>Мясо</div>
     {ords}
       <div className="button-zak" onClick={sendOrder}>Заказать все -  {props.orders.length}</div>
       <button onClick={()=>setModalActive(true)}>Открыть модал</button>

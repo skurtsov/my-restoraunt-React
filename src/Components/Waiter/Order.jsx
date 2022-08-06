@@ -1,13 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 
 let Order = (props) => {
      let ord = props.zakaz.split(',');
      let arr =[];
      let newOrder='My new order';
+     const [hidden, setHidden] = useState(true);
      const  nameRef = React.useRef(null);
     let goRedact=()=>{
             let xhr = new XMLHttpRequest();
@@ -22,6 +23,20 @@ let Order = (props) => {
             
                  //   alert("yes");
      }
+   
+     let deleteById=(prod_id)=>{
+        var xhr = new XMLHttpRequest();
+
+        var body = "id="+prod_id;
+        
+        console.log(props.orders);
+        xhr.open("POST", 'http://localhost/restoran/delete_id.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.send(body);
+        console.log(xhr)
+              alert("deleted"+prod_id);
+     }
      console.log(typeof(ord))
      Object.keys(ord).forEach(function(key) {
          arr.push(ord[key])
@@ -34,7 +49,7 @@ return(
     <div>
           <div class="card">
             <div class="stolik">
-                <p>Numer stolika {props.stolik} </p>
+                <p>Numer stolika {props.stolik} id {props.id}</p>
             </div>
             <div class="zam">
                 <ul className="zakaz__waiter">
@@ -42,7 +57,10 @@ return(
             </ul>
             </div>
             <div class="accept">
-            <FontAwesomeIcon icon={faCheck} />
+            {hidden ? <FontAwesomeIcon onClick={()=>{setHidden(false)}} icon={faCheck} /> :
+            <FontAwesomeIcon onClick={()=>deleteById(props.id)}icon={faTrash} />}
+
+            
                 <i class="fa-solid fa-pen-to-square"></i>
             </div>
             <div className="redactForm">

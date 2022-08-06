@@ -55,7 +55,7 @@ let Card = (props)=>{
             <h3 ref={nameRef}>{props.state.name}</h3>
         </div>
         <div className="desc">
-            <p>{props.state.desc}</p>
+            <p>{props.state.desc} {props.state.cat}</p>
         </div>
         <div className="price">
             <p ref={priceRef}>{props.state.price} Euro</p>
