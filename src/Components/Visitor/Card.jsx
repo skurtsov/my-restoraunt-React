@@ -60,7 +60,7 @@ let Card = (props)=>{
         <div className="price">
             <p ref={priceRef}>{props.state.price} Euro</p>
         </div>
-       {!hiddenZak ? <div className="subm-button" onClick={goZakaz}>Заказать</div>:null}
+       {!hiddenZak ? <div className="subm-button" onClick={goZakaz}>Ordenar</div>:null}
         <br />
        {!hidden ?<div className="counter">
         <div className="plus-button" onClick={goPlus}>+</div>

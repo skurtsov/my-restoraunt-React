@@ -183,3 +183,23 @@ svg.svg-inline--fa.fa-pen-to-square {
 .redactForm{
   display: none;
 }
+button.open__order {
+  width: 180px;
+  padding: 8px;
+  background-color: #fff;
+  border: 3px solid #40bb5e;
+  color: #40bb5e;
+  border-radius: 12px;
+  position: fixed;
+  bottom: 58px;
+  left: 117px;
+}
+.card__waiter {
+  height: auto;
+  display: block;
+  /* border-top: 1px solid #dbdbdb; */
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  overflow: hidden;
+}

@@ -38,7 +38,12 @@ export let addOrder=(order)=>{
 
       
       Object.keys(order_obj).forEach(function(key) {
+        try{
         state.ordersServer.push(JSON.parse(order_obj[key]))
+        }
+        catch{
+          state.ordersServer = []
+                }
       })
         renderTree(state);
 }

@@ -1,3 +1,4 @@
+import e from "cors";
 import React from "react";
 import { useState, useEffect } from "react";
 import Order from "./Order";
@@ -15,10 +16,21 @@ let Waiter = (props) => {
          resp = xhr.responseText;
      };
      xhr.send(null);
-    // console.log(resp);
      props.addOrder(resp);
      console.log("server orders:"+ props.server[0].zakaz);
    // console.log("arr"+ typeof(arr))
+}
+let clean_orders=()=>{     
+  if (window.confirm("Вы уверены?")) {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET","http://localhost/restoran/clean.php",false);
+  xhr.send();
+} 
+else{
+ return false;
+}
+
+
 }
 useEffect(() => {
     setInterval(() => {
@@ -32,11 +44,10 @@ let ordersToShow = props.server.map((el)=>{
 return(
     <div>
         <button onClick={get_orders}>Ok</button>
-        <h1>I am waiter</h1>
+        <h1>Pedidos totales:{props.server.length}</h1>
         
         {ordersToShow}
-        <h4>столик{}</h4>
-        <h4>заказ{}</h4>
+        <button className="open__order" onClick={()=>clean_orders()}>Limpiar todo</button>
     </div>
 );
 }

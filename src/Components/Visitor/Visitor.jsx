@@ -45,12 +45,9 @@ let Visitor = (props) => {
 return(
     <div>
       {cards}
-      {props.orders.map(q=> q.order)}
-      <br />
-      <div className="button" onClick={meat}>Мясо</div>
-    {ords}
-      <div className="button-zak" onClick={sendOrder}>Заказать все -  {props.orders.length}</div>
-      <button onClick={()=>setModalActive(true)}>Открыть модал</button>
+      <br />    
+      <button className="open__order" onClick={()=>setModalActive(true)}>Confirmar</button>
+
      <Modal sendOrder={sendOrder} items={props.orders} active ={modalActive} setActive={setModalActive}/>
     </div>
 );
