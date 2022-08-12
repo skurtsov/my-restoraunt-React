@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&display=swap');
 .App {
   text-align: center;
 }
@@ -39,7 +40,9 @@
 .img-prod img {
   width: 147px;
   float: left;
+  height: 147px;
   padding: 19px;
+  object-fit: contain;
 }
 .subm-button {
   width: 147px;
@@ -51,6 +54,9 @@
   color: #fff;
   border-radius: 12px;
   transition-duration: 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }
 .App {
   text-align: center;
@@ -78,11 +84,11 @@ svg.svg-inline--fa.fa-pen-to-square {
   width: 147px;
 }
 .card {
-  height: 169px;
+  height: auto;
   display: block;
   /* border-top: 1px solid #dbdbdb; */
   border-bottom: 1px solid #dbdbdb;
-  padding-bottom: 16px;
+  padding-bottom: 30px;
   padding-top: 16px;
 }
 /*Modal*/
@@ -167,6 +173,9 @@ svg.svg-inline--fa.fa-pen-to-square {
 }
 .count {
   width: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }
 .counter {
   display: flex;
@@ -191,8 +200,10 @@ button.open__order {
   color: #40bb5e;
   border-radius: 12px;
   position: fixed;
-  bottom: 58px;
-  left: 117px;
+  bottom: 7px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }
 .card__waiter {
   height: auto;
@@ -203,3 +214,106 @@ button.open__order {
   padding-top: 16px;
   overflow: hidden;
 }
+ul.zakaz__modal {
+  padding: 25%;
+}
+.conf-button {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  left: -70px;
+}
+.podtw h3 {
+  font-size: 17px;
+}
+/**/
+.check-circle {
+  width: 6.5rem;
+  height: 6.5rem;
+  background-color: #40bb5e;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 15px rgb(0 0 0 / 15%);
+  position: relative;
+  animation: circleScale 0.5s ease 1;
+  animation-timing-function: cubic-bezier(0.42, 0.97, 0.52, 1.49);
+  margin: 0 auto;
+  margin-top: 0;
+}
+.check-circle__mark {
+  display: block;
+}
+.check-circle__mark:after {
+  position: absolute;
+  top: 3.25rem;
+  left: 1.45rem;
+  transform: translate(0, 0);
+  content: "";
+  opacity: 0;
+  height: 3.25rem;
+  width: 1.75rem;
+  border-right: 3px solid #fff;
+  border-top: 3px solid #fff;
+  transform-origin: left top;
+  animation-delay: 0.6s;
+  animation-duration: 900ms;
+  animation-name: checkmark;
+  transform: scaleX(-1) rotate(135deg);
+  animation-timing-function: cubic-bezier(0.42, 0.97, 0.52, 1.49);
+  animation-fill-mode: forwards;
+}
+
+@keyframes circleScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+  20% {
+    height: 0;
+    width: 1.75rem;
+    opacity: 1;
+  }
+  40% {
+    height: 3.25rem;
+    width: 1.75rem;
+    opacity: 1;
+  }
+  100% {
+    height: 3.25rem;
+    width: 1.75rem;
+    opacity: 1;
+  }
+}
+.bottom-plash {
+  width: 100%;
+  position: fixed;
+  height: 50px;
+  bottom: 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+.title {
+  font-family: 'Montserrat', sans-serif;
+}
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+  

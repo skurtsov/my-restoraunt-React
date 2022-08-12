@@ -7,6 +7,7 @@ let Card = (props)=>{
     const [hidden, setHidden] = useState(true);
     const [hiddenZak, setHiddenZak] = useState(false);
     const [counter, updateCounter] = useState(0);
+    
   function handleIncrement() {
     updateCounter(counter + 1);
   }
@@ -15,10 +16,6 @@ let Card = (props)=>{
     updateCounter(counter <= 0 ? 0 : counter - 1);
   }
 
-
-  useEffect(() => {
-    // updaterandomText(`Random text is updated`);
-  }, [counter]);
     let goPlus=()=>{
         
         handleIncrement()
@@ -55,11 +52,12 @@ let Card = (props)=>{
             <h3 ref={nameRef}>{props.state.name}</h3>
         </div>
         <div className="desc">
-            <p>{props.state.desc} {props.state.cat}</p>
+            <p>{props.state.desc}</p>
         </div>
         <div className="price">
             <p ref={priceRef}>{props.state.price} Euro</p>
         </div>
+        
        {!hiddenZak ? <div className="subm-button" onClick={goZakaz}>Ordenar</div>:null}
         <br />
        {!hidden ?<div className="counter">

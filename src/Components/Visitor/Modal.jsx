@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../App.css';
 
 let Modal = (props)=>{
     //let qq = props.items;
     //debugger
+    const[check,setCheck]=useState(false);
     let it = props.items.map((el,index)=>{
         return <li key={index}> {el.kol}x {el.order}</li>
     })
+    let sendAll=()=>{
+        props.sendOrder();
+        setCheck(true)
+    }
     return(
         <div className={props.active ? "modal active" : "modal"} onClick={()=>props.setActive(false)}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
+            <div className="podtw"><h3>Когда вы нажмете кнопку "Подтвердить" - заказ автоматически передается официанту</h3></div>
                 <ul className='zakaz__modal'>
-            {it}
+            {!check ? it: null}
+            {check ? <div class="check-circle">
+            <div class="check-circle__mark"></div>
+            </div>: null}
             </ul>
-            <div className="subm-button" onClick={props.sendOrder}>Заказать</div>
+            <div className="subm-button conf-button" onClick={()=>{ props.sendOrder(); setCheck(true)}}>Confirmar</div>
 
             </div>
         </div>

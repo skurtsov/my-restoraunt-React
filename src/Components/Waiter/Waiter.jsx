@@ -43,7 +43,6 @@ let ordersToShow = props.server.map((el)=>{
 })
 return(
     <div>
-        <button onClick={get_orders}>Ok</button>
         <h1>Pedidos totales:{props.server.length}</h1>
         
         {ordersToShow}

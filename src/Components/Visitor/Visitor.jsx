@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { render } from "@testing-library/react";
+import React, { useState, updateState} from "react";
 import '../../App.css';
 import Card from "./Card";
 import Modal from "./Modal";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 let Visitor = (props) => {
@@ -9,19 +11,13 @@ let Visitor = (props) => {
     const urlParams = new URLSearchParams(queryString);
     const id = urlParams.get('id')
     const arrQ = [];
+    const [category, setCategory] = useState("all");
+
     let cards = props.state.map((el)=>{
-       
-        return <Card  plus ={props.plus} minus={props.minus} newOrder={props.newOrder} orders={props.orders} state={el}/>;
+    
+         return <Card  plus ={props.plus} minus={props.minus} newOrder={props.newOrder} orders={props.orders} state={el}/>;
     })
-    let meat = ()=>{
-    let cards = props.state.map((el)=>{
-        if(el.cat =="meat"){
-        return <Card  plus ={props.plus} minus={props.minus} newOrder={props.newOrder} orders={props.orders} state={el}/>;
-        }
-    })
-    console.log(props.state)
-    alert('meat');
-}
+
 
      let ords = props.orders.map((elq,index)=>{
          return <li key={index}>{elq?.kol +'x '+ elq?.order}</li>
@@ -45,8 +41,12 @@ let Visitor = (props) => {
 return(
     <div>
       {cards}
-      <br />    
+      <br /> 
+      <br /> 
+      <br />   
+      <div className="bottom-plash">
       <button className="open__order" onClick={()=>setModalActive(true)}>Confirmar</button>
+      </div>
 
      <Modal sendOrder={sendOrder} items={props.orders} active ={modalActive} setActive={setModalActive}/>
     </div>
