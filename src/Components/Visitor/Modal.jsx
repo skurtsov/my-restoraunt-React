@@ -15,7 +15,7 @@ let Modal = (props)=>{
     return(
         <div className={props.active ? "modal active" : "modal"} onClick={()=>props.setActive(false)}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
-            <div className="podtw"><h3>Когда вы нажмете кнопку "Подтвердить" - заказ автоматически передается официанту</h3></div>
+            <div className="podtw"><h3>Cuando presiona el botón "Confirmar", el pedido se transfiere automáticamente al camarero</h3></div>
                 <ul className='zakaz__modal'>
             {!check ? it: null}
             {check ? <div class="check-circle">

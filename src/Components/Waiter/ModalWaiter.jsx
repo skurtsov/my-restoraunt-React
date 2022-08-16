@@ -21,8 +21,9 @@ let ModalWaiter = (props)=>{
     return(
         <div className={props.active ? "modal active" : "modal"} onClick={()=>props.setActive(false)}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
+                <h2>Editar</h2>
             <textarea ref={nameRef}  cols="30" rows="5"></textarea>
-            <div onClick={()=>goRedact()} className="goredact">Редактировать</div>
+            <div onClick={()=>goRedact()} className="subm-button conf-button">Editar</div>
 
 
             </div>

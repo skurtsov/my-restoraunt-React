@@ -5,6 +5,7 @@ import Order from "./Order";
 
 
 let Waiter = (props) => {
+
    let get_orders=()=>{     
     let resp='';
     let xhr = new XMLHttpRequest();
@@ -29,14 +30,13 @@ let clean_orders=()=>{
 else{
  return false;
 }
-
-
 }
 useEffect(() => {
     setInterval(() => {
-      get_orders()
+      get_orders();
     }, 2000);
   }, []);
+
 //get_orders();
 let ordersToShow = props.server.map((el)=>{
   return <Order stolik={el.stolik} zakaz={el.zakaz} id={el.id}/>
@@ -46,7 +46,10 @@ return(
         <h1>Pedidos totales:{props.server.length}</h1>
         
         {ordersToShow}
+        <div className="bottom-plash">
         <button className="open__order" onClick={()=>clean_orders()}>Limpiar todo</button>
+      </div>
+        
     </div>
 );
 }

@@ -204,6 +204,7 @@ button.open__order {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 500;
+  z-index: -1;
 }
 .card__waiter {
   height: auto;
@@ -308,6 +309,7 @@ ul.zakaz__modal {
   display: flex;
   justify-content: center;
 }
+
 .title {
   font-family: 'Montserrat', sans-serif;
 }
@@ -316,4 +318,14 @@ p {
   font-size: 14px;
   font-weight: 500;
 }
-  
+textarea {
+  height: 70%;
+}
+svg.svg-inline--fa.fa-pen {
+  font-size: 25px;
+  color: #081978;
+}
+svg.svg-inline--fa.fa-trash {
+  color: #f20b0bb8;
+  font-size: 26px;
+}
