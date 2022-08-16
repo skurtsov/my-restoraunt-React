@@ -20,7 +20,7 @@ let Order = (props) => {
         var body = "id="+prod_id;
         
         console.log(props.orders);
-        xhr.open("POST", 'http://localhost/restoran/delete_id.php', true);
+        xhr.open("POST", 'http://makemesites.com/restoran/delete_id.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xhr.send(body);

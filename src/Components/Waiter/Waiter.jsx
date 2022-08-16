@@ -10,7 +10,7 @@ let Waiter = (props) => {
     let resp='';
     let xhr = new XMLHttpRequest();
    
-     xhr.open("GET","http://localhost/restoran/waiter.php",false);
+     xhr.open("POST","https://makemesites.com/restoran/waiter.php",false);
      xhr.onreadystatechange = function() {
        if (xhr.readyState==4 && xhr.status==200)
          console.log(xhr.responseText);
@@ -24,7 +24,7 @@ let Waiter = (props) => {
 let clean_orders=()=>{     
   if (window.confirm("Вы уверены?")) {
   let xhr = new XMLHttpRequest();
-  xhr.open("GET","http://localhost/restoran/clean.php",false);
+  xhr.open("GET","http://makemesites.com/restoran/clean.php",false);
   xhr.send();
 } 
 else{

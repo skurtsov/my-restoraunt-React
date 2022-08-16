@@ -10,7 +10,7 @@ let ModalWaiter = (props)=>{
         let xhr = new XMLHttpRequest();
         newOrder = 'undefined, ' + nameRef.current.value
         let body = "id="+props.id+"&order="+newOrder;
-        xhr.open("POST", 'http://localhost/restoran/redact.php', true);
+        xhr.open("POST", 'http://makemesites.com/restoran/redact.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xhr.send(body);

@@ -2,14 +2,14 @@ import { renderTree } from "../render";
 let state_old={ 
     card_state :[{
         id:1,
-        image: 'https://www.maggi.ru/data/images/recept/img640x500/recept_6538_hkut.jpg',
+        image: 'http://www.maggi.ru/data/images/recept/img640x500/recept_6538_hkut.jpg',
         name:'Lyulia kebap',
         desc:'delicious kebab',
         price:7.5
     },
     {
         id:2,
-        image: 'https://www.ikea.com/gb/en/images/products/dyrgrip-red-wine-glass-clear-glass__0738529_pe741474_s5.jpg',
+        image: 'http://www.ikea.com/gb/en/images/products/dyrgrip-red-wine-glass-clear-glass__0738529_pe741474_s5.jpg',
         name:'Red wine',
         desc:'delicious wine',
         price:3.5
@@ -21,7 +21,7 @@ let state_old={
 let resp='';
 let xhr = new XMLHttpRequest();
 
- xhr.open("GET","http://localhost/restoran/data.php",false);
+ xhr.open("GET","http://makemesites.com/restoran/data.php",false);
  xhr.onreadystatechange = function() {
    if (xhr.readyState==4 && xhr.status==200)
      console.log(xhr.responseText);
