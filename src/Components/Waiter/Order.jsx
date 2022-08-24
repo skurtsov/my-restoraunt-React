@@ -25,7 +25,7 @@ let Order = (props) => {
 
         xhr.send(body);
         console.log(xhr)
-              alert("deleted"+prod_id);
+        props.setIgnore(true)
      }
      console.log(typeof(ord))
      Object.keys(ord).forEach(function(key) {
