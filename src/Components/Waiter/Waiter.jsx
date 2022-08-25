@@ -52,7 +52,7 @@ useEffect(() => {
 
 useEffect(() => {
  if(props.server.length>0 && ignore != true){
-  alert("Nuevo pedido");
+  alert("Nuevo pedido"+ignore);
   setIgnore(false)
  }
 }, [props.server.length]);

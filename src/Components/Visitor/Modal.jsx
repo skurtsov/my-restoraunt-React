@@ -22,7 +22,7 @@ let Modal = (props)=>{
             <div class="check-circle__mark"></div>
             </div>: null}
             </ul>
-            <div className="subm-button conf-button" onClick={()=>{ props.sendOrder(); setCheck(true)}}>Confirmar</div>
+            {!check ? <div className="subm-button conf-button" onClick={()=>{ props.sendOrder(); setCheck(true)}}>Confirmar</div>:<h3 class="esperar">Todo bien. Por favor, espera para camarero</h3>}
 
             </div>
         </div>

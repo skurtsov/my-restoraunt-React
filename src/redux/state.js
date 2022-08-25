@@ -21,7 +21,7 @@ let state_old={
 let resp='';
 let xhr = new XMLHttpRequest();
 
- xhr.open("GET","http://makemesites.com/restoran/data.php",false);
+ xhr.open("POST","https://makemesites.com/restoran/data.php",false);
  xhr.onreadystatechange = function() {
    if (xhr.readyState==4 && xhr.status==200)
      console.log(xhr.responseText);

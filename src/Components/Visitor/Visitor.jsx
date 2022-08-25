@@ -29,7 +29,7 @@ let Visitor = (props) => {
         var body = "id="+Math.floor(Math.random() * 999999)+"&stolik="+id+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order);
         
         console.log(props.orders);
-        xhr.open("POST", 'http://makemesites.com/restoran/index.php', true);
+        xhr.open("POST", 'https://makemesites.com/restoran/index.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xhr.send(body);
