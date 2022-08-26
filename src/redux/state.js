@@ -57,6 +57,15 @@ state.orders.filter(function(val) {
   renderTree(state)
 
 }
+//Multilangual plus 
+export let plusOrder_loc = (order_name) =>{
+
+  state.orders_loc.filter(function(val) {
+      return val.order == order_name;
+    })[0].kol +=1 ;
+    renderTree(state)
+  
+  }
 export let minusOrder = (order_name) =>{
     state.orders.filter(function(val) {
         return val.order == order_name;
@@ -72,6 +81,20 @@ export let minusOrder = (order_name) =>{
       renderTree(state)
      
      };
+     //multilangual minus
+     export let minusOrder_loc = (order_name) =>{
+      state.orders_loc.filter(function(val) {
+          return val.order == order_name;
+        })[0].kol -=1 ;
+        if(state.orders_loc.filter(function(val) {
+          return val.order == order_name;
+        })[0].kol ==0){
+        const index = state.orders_loc.findIndex((el) => el.order === order_name);
+        state.orders_loc.splice(index,1)
+        }
+        renderTree(state)
+       
+       };
     
 export let newOrder =(order, price)=>{
     let ord_o = {
@@ -80,10 +103,16 @@ export let newOrder =(order, price)=>{
         kol:1,
     }
  state.orders.push(ord_o);
-
- //state.orders[0] = state.orders[0]+parseFloat(price);
  console.log("state resp :"+ state.orders)
  renderTree(state)
-// debugger;
+}
+export let newOrderLoc =(order, price)=>{
+  let ord_loc = {
+      order: order,
+      price: price,
+      kol:1,
+  }
+state.orders_loc.push(ord_loc);
+renderTree(state)
 }
 export default state;
