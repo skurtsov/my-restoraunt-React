@@ -424,3 +424,6 @@ li {
   vertical-align: top;
   margin-top: 6px;
 }
+.lang-dropdown a {
+  color: #000;
+}
