@@ -242,7 +242,7 @@ ul.zakaz__modal {
   width: 6.5rem;
   height: 6.5rem;
   background-color: #40bb5e;
-  border-radius: 50%;
+  border-radius: 50% !important;
   display: block;
   margin-bottom: 2rem;
   box-shadow: 0 8px 15px rgb(0 0 0 / 15%);
@@ -399,7 +399,7 @@ h3.hidden {
   display: none;
   background: #fff;
   border-radius: 5px;
-  margin-top: -200px;
+  margin-top: -122px;
 }
 .selecting-lang {
   padding: 3px 5px 3px 5px;

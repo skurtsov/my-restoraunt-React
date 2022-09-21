@@ -8,11 +8,17 @@ import Order from "./Order";
 
 let Waiter = (props) => {
   let[ignore, setIgnore]= useState(false);
+  const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let restoran = urlParams.get('restoran')
+    if(restoran == null){
+      restoran = "gyros";
+  }
    let get_orders=()=>{     
     let resp='';
     let xhr = new XMLHttpRequest();
    
-     xhr.open("POST","https://makemesites.com/restoran/waiter.php",false);
+     xhr.open("POST","https://makemesites.com/restoran/waiter.php?restoran="+restoran,false);
      xhr.onreadystatechange = function() {
        if (xhr.readyState==4 && xhr.status==200)
          //console.log(xhr.responseText);
@@ -27,7 +33,7 @@ let Waiter = (props) => {
 let clean_orders=()=>{     
   if (window.confirm("¿Está seguro?")) {
   let xhr = new XMLHttpRequest();
-  xhr.open("POST","https://makemesites.com/restoran/clean.php",false);
+  xhr.open("POST","https://makemesites.com/restoran/clean.php?restoran="+restoran,false);
   xhr.send(null);
 } 
 else{
@@ -52,8 +58,8 @@ useEffect(() => {
 
 useEffect(() => {
  if(props.server.length>0 && ignore != true){
-  alert("Nuevo pedido"+ignore);
-  setIgnore(false)
+  alert("Nuevo pedido");
+  setIgnore(false);
  }
 }, [props.server.length]);
 

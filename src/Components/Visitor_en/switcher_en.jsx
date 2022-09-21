@@ -2,6 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 let Switcher_en =()=>{
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const stolik_id = urlParams.get('id')
+  let restoran = urlParams.get('restoran')
     return(
        
         <div class="switch-lang"> 
@@ -13,18 +17,18 @@ let Switcher_en =()=>{
     
         
         <div class="lang-dropdown">
-        <NavLink to="/">
+        <NavLink to={"/?restoran="+restoran+"&id="+stolik_id}>
         <div class="selecting-lang">
         <img class="lang-flag" src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/128/Flag_of_Spain.png"/>
             <p class="lang-text">ES</p>
           </div>
             </NavLink>
-          <NavLink to="/fr">
+          <NavLink to={"/fr?restoran="+restoran+"&id="+stolik_id}>
           <div class="selecting-lang"><img class="lang-flag" src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/128/Flag_of_France.png"/>
             <p class="lang-text">FR</p>
           </div>
           </NavLink>
-          <NavLink to="/de">
+          {/* <NavLink to="/de">
           <div class="selecting-lang"><img class="lang-flag" src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/128/Flag_of_Germany.png"/>
             <p class="lang-text">DE</p>
           </div>
@@ -34,7 +38,7 @@ let Switcher_en =()=>{
             <img class="lang-flag" src="https://cdn3.iconfinder.com/data/icons/international-circular-flags/512/catalonia_catalunya_flag_country_national_region_european-512.png"/>
             <p class="lang-text">CAT</p>
           </div>
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
     );

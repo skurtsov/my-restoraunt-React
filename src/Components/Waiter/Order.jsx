@@ -8,7 +8,12 @@ import ModalWaiter from "./ModalWaiter";
 let Order = (props) => {
      let ord = props.zakaz.split(',');
      let arr =[];
-
+     const queryString = window.location.search;
+     const urlParams = new URLSearchParams(queryString);
+     let restoran = urlParams.get('restoran')
+     if(restoran == null){
+        restoran = "gyros";
+    }
      const [hidden, setHidden] = useState(true);
     
      const [modalActive, setModalActive] = useState(false);
@@ -17,7 +22,7 @@ let Order = (props) => {
      let deleteById=(prod_id)=>{
         var xhr = new XMLHttpRequest();
 
-        var body = "id="+prod_id;
+        var body = "id="+prod_id+"&restoran="+restoran;
         
         console.log(props.orders);
         xhr.open("POST", 'https://makemesites.com/restoran/delete_id.php', true);

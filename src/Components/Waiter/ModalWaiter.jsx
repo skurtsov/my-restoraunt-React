@@ -4,12 +4,18 @@ import '../../App.css';
 let ModalWaiter = (props)=>{
     //let qq = props.items;
     //debugger
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let restoran = urlParams.get('restoran')
+    if(restoran == null){
+        restoran = "gyros";
+    }
     const  nameRef = React.useRef(null);
     let newOrder='My new order';
     let goRedact=()=>{
         let xhr = new XMLHttpRequest();
         newOrder = 'undefined, ' + nameRef.current.value
-        let body = "id="+props.id+"&order="+newOrder;
+        let body = "id="+props.id+"&restoran="+restoran+"&order="+newOrder;
         xhr.open("POST", 'https://makemesites.com/restoran/redact.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 

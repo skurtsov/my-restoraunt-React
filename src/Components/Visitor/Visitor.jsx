@@ -11,6 +11,10 @@ let Visitor = (props) => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const id = urlParams.get('id')
+    let restoran = urlParams.get('restoran')
+    if(restoran == null){
+        restoran = "gyros";
+    }
     const arrQ = [];
     const [category, setCategory] = useState("all");
 
@@ -27,7 +31,7 @@ let Visitor = (props) => {
     let sendOrder = ()=>{
         var xhr = new XMLHttpRequest();
 
-        var body = "id="+Math.floor(Math.random() * 999999)+"&stolik="+id+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order);
+        var body = "id="+Math.floor(Math.random() * 999999)+"&stolik="+id+"&restoran="+restoran+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order);
         
         console.log(props.orders);
         xhr.open("POST", 'https://makemesites.com/restoran/index.php', true);

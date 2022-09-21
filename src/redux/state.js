@@ -19,9 +19,16 @@ let state_old={
     ordersServer:[]
 }
 let resp='';
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+let restoran = urlParams.get('restoran')
+if(restoran == null){
+  restoran = "gyros";
+  console.log("restoran:"+restoran)
+}
+console.log("https://makemesites.com/restoran/data.php?restoran="+restoran);
 let xhr = new XMLHttpRequest();
-
- xhr.open("POST","https://makemesites.com/restoran/data.php",false);
+ xhr.open("POST","https://makemesites.com/restoran/data.php?restoran="+restoran,false);
  xhr.onreadystatechange = function() {
    if (xhr.readyState==4 && xhr.status==200)
      console.log(xhr.responseText);

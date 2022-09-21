@@ -13,7 +13,6 @@ let Visitor_en = (props) => {
     const urlParams = new URLSearchParams(queryString);
     const id = urlParams.get('id')
     let restoran = urlParams.get('restoran')
-    console.log("stolik="+id +" restik ="+restoran)
     if(restoran == null){
         restoran = "gyros";
     }
@@ -28,7 +27,7 @@ let Visitor_en = (props) => {
 
      let ords = props.orders.map((elq,index)=>{
          return <li key={index}>{elq?.kol +'x '+ elq?.order}</li>
-
+         debugger
      })
     let sendOrder = ()=>{
         var xhr = new XMLHttpRequest();
@@ -38,6 +37,7 @@ let Visitor_en = (props) => {
         console.log(props.orders);
         xhr.open("POST", 'https://makemesites.com/restoran/index.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
         xhr.send(body);
         console.log(xhr)
              //   alert("yes");
