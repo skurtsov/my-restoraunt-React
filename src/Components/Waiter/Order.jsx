@@ -55,7 +55,7 @@ return(
             {hidden ? <FontAwesomeIcon onClick={()=>{setHidden(false)}} icon={faCheck} /> :
             <FontAwesomeIcon onClick={()=>deleteById(props.id)}icon={faTrash} />}
             <FontAwesomeIcon onClick={()=>setModalActive(true)} icon={faPen} />
-            <ModalWaiter id={props.id} active ={modalActive} setActive={setModalActive}/>
+            <ModalWaiter zak={arr_show} id={props.id} active ={modalActive} setActive={setModalActive}/>
             
                 <i class="fa-solid fa-pen-to-square"></i>
             </div>
