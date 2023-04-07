@@ -4,6 +4,7 @@ import React from "react";
 import { useRef } from "react";
 import { useState, useEffect } from "react";
 import Order from "./Order";
+import waw from "../../new.mp3"
 
 
 let Waiter = (props) => {
@@ -11,6 +12,7 @@ let Waiter = (props) => {
   const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let restoran = urlParams.get('restoran')
+    let audio = new Audio(waw);
     if(restoran == null){
       restoran = "gyros";
   }
@@ -18,7 +20,7 @@ let Waiter = (props) => {
     let resp='';
     let xhr = new XMLHttpRequest();
    
-     xhr.open("POST","https://makemesites.com/restoran/waiter.php?restoran="+restoran,false);
+     xhr.open("GET","https://reactive-cafe.com/api/getordersweb/?restoran="+restoran,false);
      xhr.onreadystatechange = function() {
        if (xhr.readyState==4 && xhr.status==200)
          //console.log(xhr.responseText);
@@ -32,9 +34,10 @@ let Waiter = (props) => {
 }
 let clean_orders=()=>{     
   if (window.confirm("¿Está seguro?")) {
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST","https://makemesites.com/restoran/clean.php?restoran="+restoran,false);
-  xhr.send(null);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", 'https://reactive-cafe.com/api/deleteall/?restoran='+restoran, false);
+    xhr.send(null);
+    //console.log(xhr)
 } 
 else{
   console.log('cleaned')
@@ -58,6 +61,7 @@ useEffect(() => {
 
 useEffect(() => {
  if(props.server.length>0 && ignore != true){
+  audio.play();
   alert("Nuevo pedido");
   setIgnore(false);
  }

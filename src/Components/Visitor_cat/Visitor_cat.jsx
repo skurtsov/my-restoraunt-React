@@ -29,18 +29,18 @@ let Visitor_en = (props) => {
          return <li key={index}>{elq?.kol +'x '+ elq?.order}</li>
          debugger
      })
-    let sendOrder = ()=>{
+     let sendOrder = ()=>{
         var xhr = new XMLHttpRequest();
-
-        var body = "id="+Math.floor(Math.random() * 999999)+"&stolik="+id+"&restoran="+restoran+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order);
-        
+        //var body = "id="+Math.floor(Math.random() * 999999)+"&stolik="+id+"&restoran="+restoran+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order);    
         console.log(props.orders);
-        xhr.open("POST", 'https://makemesites.com/restoran/index.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.send(body);
+        xhr.open("GET", 'https://reactive-cafe.com/api/norder/?restoran='+restoran+"&stolik="+id+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order), false);
+        xhr.send(null);
         console.log(xhr)
              //   alert("yes");
+    }
+    let venAqui = ()=>{
+        sendOrder();
+        alert('sha podoidut');
     }
     const [Modal_enActive, setModal_enActive] = useState(false);
 

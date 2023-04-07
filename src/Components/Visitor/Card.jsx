@@ -7,7 +7,10 @@ let Card = (props)=>{
     const [hidden, setHidden] = useState(true);
     const [hiddenZak, setHiddenZak] = useState(false);
     const [counter, updateCounter] = useState(0);
-    
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const theme = urlParams.get('theme')
+    console.log("State is"+JSON.stringify(props.state))
   function handleIncrement() {
     updateCounter(counter + 1);
   }
@@ -43,27 +46,35 @@ let Card = (props)=>{
         
 
     }
+    let photo = true
+    if(props.state.image == null){
+        photo = false
+    }
     return(
         <div className="card" >
-        <div className="img-prod">
+            { photo == true ?
+        <div className="img-prod" onClick={()=>{props.setModalImage(props.state.image);props.setShowModalImage(true)}}>
             <img src={props.state.image} alt="" />
+            
         </div>
+:null}
         <div className="title">
             <h3 ref={nameRef}>{props.state.name}</h3>
         </div>
         <div className="desc">
-            <p>{props.state.desc}</p>
+            <p>{props.state.descr}</p>
         </div>
         <div className="price">
-            <p ref={priceRef}>{props.state.price} Euro</p>
+            <p ref={priceRef}>{ Number.parseFloat(props.state.price).toFixed(2)} Euro</p>
         </div>
         
-       {!hiddenZak ? <div className="subm-button" onClick={goZakaz}>Pedir</div>:null}
+       {photo?!hiddenZak ? <div className={theme=="blue"?"subm-button-blue":"subm-button"} onClick={goZakaz}>Pedir</div>:null:!hiddenZak ? <div className={theme=="blue"?"subm-button-blue-centr":"subm-button-centr"} onClick={goZakaz}>Pedir</div>:null}
         <br />
        {!hidden ?<div className="counter">
-        <div className="plus-button" onClick={goPlus}>+</div>
+       <div className={theme=="blue"?"minus-button-blue":"minus-button"} onClick={goMinus}>-</div>
         <div className='count'>{counter}</div>
-        <div className="minus-button" onClick={goMinus}>-</div>
+        <div className={theme=="blue"?"plus-button-blue":"plus-button"} onClick={goPlus}>+</div>
+        
         </div>: null}
 
         

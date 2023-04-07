@@ -1,5 +1,5 @@
 import { renderTree } from "../render";
-let state_old={ 
+let state_old={
     card_state :[{
         id:1,
         image: 'http://www.maggi.ru/data/images/recept/img640x500/recept_6538_hkut.jpg',
@@ -26,9 +26,9 @@ if(restoran == null){
   restoran = "gyros";
   console.log("restoran:"+restoran)
 }
-console.log("https://makemesites.com/restoran/data.php?restoran="+restoran);
+// console.log("https://makemesites.com/restoran/data.php?restoran="+restoran);
 let xhr = new XMLHttpRequest();
- xhr.open("POST","https://makemesites.com/restoran/data.php?restoran="+restoran,false);
+ xhr.open("GET","https://reactive-cafe.com/api/getsku/?restoran="+restoran,false);
  xhr.onreadystatechange = function() {
    if (xhr.readyState==4 && xhr.status==200)
      console.log(xhr.responseText);
@@ -43,7 +43,7 @@ export let addOrder=(order)=>{
        let order_valid = order.substring(0, order.length - 1);
        let order_obj = order_valid.split(';')
 
-      
+
       Object.keys(order_obj).forEach(function(key) {
         try{
         state.ordersServer.push(JSON.parse(order_obj[key]))
@@ -64,14 +64,14 @@ state.orders.filter(function(val) {
   renderTree(state)
 
 }
-//Multilangual plus 
+//Multilangual plus
 export let plusOrder_loc = (order_name) =>{
 
   state.orders_loc.filter(function(val) {
       return val.order == order_name;
     })[0].kol +=1 ;
     renderTree(state)
-  
+
   }
 export let minusOrder = (order_name) =>{
     state.orders.filter(function(val) {
@@ -86,7 +86,7 @@ export let minusOrder = (order_name) =>{
       }
       console.log(state.orders);
       renderTree(state)
-     
+
      };
      //multilangual minus
      export let minusOrder_loc = (order_name) =>{
@@ -100,9 +100,9 @@ export let minusOrder = (order_name) =>{
         state.orders_loc.splice(index,1)
         }
         renderTree(state)
-       
+
        };
-    
+
 export let newOrder =(order, price)=>{
     let ord_o = {
         order: order,

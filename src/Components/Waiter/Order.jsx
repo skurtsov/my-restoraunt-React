@@ -17,22 +17,17 @@ let Order = (props) => {
      const [hidden, setHidden] = useState(true);
     
      const [modalActive, setModalActive] = useState(false);
-
    
      let deleteById=(prod_id)=>{
         var xhr = new XMLHttpRequest();
+        xhr.open("GET", 'https://reactive-cafe.com/api/deleteid/?id='+prod_id+'&restoran='+restoran, true);
+//        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.send(null)
 
-        var body = "id="+prod_id+"&restoran="+restoran;
-        
-        console.log(props.orders);
-        xhr.open("POST", 'https://makemesites.com/restoran/delete_id.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        xhr.send(body);
-        console.log(xhr)
         props.setIgnore(true)
      }
-     console.log(typeof(ord))
+     //console.log(typeof(ord))
      Object.keys(ord).forEach(function(key) {
          arr.push(ord[key])
        })
@@ -44,11 +39,11 @@ return(
     <div>
           <div class="card__waiter">
             <div class="stolik">
-                <p>Numero de mesa: {props.stolik}</p>
+                {props.stolik <100 ? <p>Numero de mesa: {props.stolik}</p>:<p>Numero de orden: {props.stolik}</p>}
             </div>
             <div class="zam">
                 <ul className="zakaz__waiter">
-            {arr_show}
+            {arr_show.length>1?arr_show:<h3>podoidite k stoliku</h3>}
             </ul>
             </div>
             <div class="accept">

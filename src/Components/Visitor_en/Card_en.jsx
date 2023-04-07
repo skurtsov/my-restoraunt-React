@@ -66,9 +66,10 @@ let Card_en = (props)=>{
        {!hiddenZak ? <div className="subm-button" onClick={goZakaz}>Order</div>:null}
         <br />
        {!hidden ?<div className="counter">
-        <div className="plus-button" onClick={goPlus}>+</div>
+       <div className="minus-button" onClick={goMinus}>-</div>
+        
         <div className='count'>{counter}</div>
-        <div className="minus-button" onClick={goMinus}>-</div>
+        <div className="plus-button" onClick={goPlus}>+</div>
         </div>: null}
 
         

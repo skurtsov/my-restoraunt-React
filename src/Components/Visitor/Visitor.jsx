@@ -10,17 +10,25 @@ import Switcher from "./switcher";
 let Visitor = (props) => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('id')
+    const [modalimage, setModalImage] = useState('')
+    const [showmodalimage, setShowModalImage] = useState(false)
+    let id = urlParams.get('id')
+    const theme = urlParams.get('theme')
     let restoran = urlParams.get('restoran')
+    console.log('default id'+id)
     if(restoran == null){
-        restoran = "gyros";
+        restoran = "greek";
     }
+   if(id == null){
+    id = Math.floor(Math.random() * (999 - 100) + 100)
+    console.log('generated id'+id)
+   }
     const arrQ = [];
     const [category, setCategory] = useState("all");
 
     let cards = props.state.map((el)=>{
     
-         return <Card  plus ={props.plus} minus={props.minus} newOrder={props.newOrder} orders={props.orders} state={el}/>;
+         return <Card  plus ={props.plus} minus={props.minus} newOrder={props.newOrder} orders={props.orders} setShowModalImage={setShowModalImage} setModalImage={setModalImage} state={el}/>;
     })
 
 
@@ -30,31 +38,43 @@ let Visitor = (props) => {
      })
     let sendOrder = ()=>{
         var xhr = new XMLHttpRequest();
-
-        var body = "id="+Math.floor(Math.random() * 999999)+"&stolik="+id+"&restoran="+restoran+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order);
-        
+        //var body = "id="+Math.floor(Math.random() * 999999)+"&stolik="+id+"&restoran="+restoran+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order);    
         console.log(props.orders);
-        xhr.open("POST", 'https://makemesites.com/restoran/index.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.send(body);
+        xhr.open("GET", 'https://reactive-cafe.com/api/norder/?restoran='+restoran+"&stolik="+id+"&zakaz="+props.orders.map(a => a.kol+'x ' + a.order), false);
+        xhr.send(null);
         console.log(xhr)
              //   alert("yes");
     }
+    let venAqui = ()=>{
+        sendOrder();
+        alert('sha podoidut');
+    }
     const [modalActive, setModalActive] = useState(false);
-
 return(
     <div>
       {cards}
       <br /> 
       <br /> 
       <br />   
+      {showmodalimage?
+      <div className="imagemodal" onClick={()=>setShowModalImage(false)}>
+            <div className="modalcontent">
+            <img src={modalimage} alt="" />
+           
+            </div>
+      </div>
+   :null
+      }
       <div className="bottom-plash">
-      <button className="open__order" onClick={()=>setModalActive(true)}>Confirmar</button>
+        {/* {props.orders.length >1? */}
+      <button className={theme=="blue"? "open__order__blue":"open__order"} onClick={()=>setModalActive(true)}>Confirmar</button>
+    {/*}   :
+       <button className={theme=="blue"? "open__order__blue":"open__order"} onClick={()=>venAqui()}>{props.orders.length}Podoidite ko mne</button>
+         */}
       <Switcher/>
       </div>
 
-     <Modal sendOrder={sendOrder} items={props.orders} active ={modalActive} setActive={setModalActive}/>
+     <Modal sendOrder={sendOrder} id={id} items={props.orders} active ={modalActive} setActive={setModalActive}/>
     </div>
 );
 }

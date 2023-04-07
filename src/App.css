@@ -43,6 +43,7 @@
   height: 147px;
   padding: 19px;
   object-fit: contain;
+  max-height: 109px;
 }
 .subm-button {
   width: 147px;
@@ -57,6 +58,48 @@
   font-size: 14px;
   font-weight: 500;
   left: -22px;
+}
+.subm-button-centr {
+  width: 147px;
+  background-color: #40bb5e;
+  position: relative;
+  padding: 5px;
+  color: #fff;
+  border-radius: 12px;
+  transition-duration: 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  left: 29%;
+  top: 13px;
+}
+.subm-button-blue {
+  width: 147px;
+  float: right;
+  background-color: #1100ff;
+  position: relative;
+  padding: 5px;
+  color: #fff;
+  border-radius: 12px;
+  transition-duration: 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  left: -22px;
+}
+.subm-button-blue-centr {
+  width: 147px;
+  background-color: #1100ff;
+  position: relative;
+  padding: 5px;
+  color: #fff;
+  border-radius: 12px;
+  transition-duration: 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  left: 29%;
+  top: 13px;
 }
 .App {
   text-align: center;
@@ -174,6 +217,13 @@ svg.svg-inline--fa.fa-pen-to-square {
   color: #fff;
   border-radius: 11px;
 }
+.plus-button-blue, .minus-button-blue {
+  width: 34px;
+  height: 25px;
+  background-color: #1100ff;
+  color: #fff;
+  border-radius: 11px;
+}
 .count {
   font-family: Montserrat,sans-serif;
   font-size: 14px;
@@ -203,6 +253,19 @@ button.open__order {
   background-color: #fff;
   border: 3px solid #40bb5e;
   color: #40bb5e;
+  border-radius: 12px;
+  position: fixed;
+  bottom: 7px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+button.open__order__blue {
+  width: 180px;
+  padding: 8px;
+  background-color: #fff;
+  border: 3px solid #1100ff;
+  color: #1100ff;
   border-radius: 12px;
   position: fixed;
   bottom: 7px;
@@ -426,4 +489,27 @@ li {
 }
 .lang-dropdown a {
   color: #000;
+}
+.imagemodal {
+  position: fixed;
+  top: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #3f3e3e70;
+  justify-content: center;
+  align-items: center;
+}
+.modalcontent{
+  width: 70%;
+
+}
+.modalcontent img{
+  width: 100%;
+}
+
+h3.numer {
+  font-size: 34px;
+  color: #0035ff;
+  transition-duration: 1s;
 }

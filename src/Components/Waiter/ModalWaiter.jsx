@@ -23,15 +23,26 @@ let ModalWaiter = (props)=>{
     const  nameRef = React.useRef(null);
     let newOrder='My new order';
     let goRedact=()=>{
-        let xhr = new XMLHttpRequest();
-        newOrder = 'undefined, ' + nameRef.current.value
-        let body = "id="+props.id+"&restoran="+restoran+"&order="+newOrder;
-        xhr.open("POST", 'https://makemesites.com/restoran/redact.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // let xhr = new XMLHttpRequest();
+        // newOrder = 'undefined, ' + nameRef.current.value
+        // xhr.open("GET", 'http://reactive-cafe.com/api/redact"id='+props.id+'&restoran='+restoran+'&order='+newOrder, true);
+        // //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        xhr.send(body);
-        console.log(xhr);
-        props.setActive(false);
+        // xhr.send(null);
+        // console.log(xhr);
+        newOrder = 'undefined, ' + nameRef.current.value
+        // let xhr = new XMLHttpRequest();
+        // xhr.open("GET", 'https://reactive-cafe.com/api/redactid?id='+props.id+'&restoran='+restoran+'&order='+newOrder, false);
+        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // xhr.send(null);
+       fetch('https://reactive-cafe.com/api/redactid?id='+props.id+'&restoran='+restoran+'&zakaz='+newOrder,{ 
+    method: 'GET',
+    mode: 'no-cors',
+})
+  .then((response) => {
+    console.log(response.text());
+  })
+       props.setActive(false);
              //   alert("yes");
  }
     return(
