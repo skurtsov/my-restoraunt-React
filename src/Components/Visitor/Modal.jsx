@@ -24,10 +24,10 @@ let Modal = (props)=>{
             {check && props.id<100 ? <div class="check-circle">
             <div class="check-circle__mark"></div>
             </div>: check && props.id>100 ? 
-            <h3 className="numer">{props.id}</h3>
+            <h3 className={"numer color-"+theme}>{props.id}</h3>
             :null}
             </ul>
-            {!check ? <div className={theme=="blue"?"subm-button-blue conf-button":"subm-button conf-button"} onClick={()=>{ props.sendOrder(); setCheck(true)}}>Confirmar</div>:check &&props.id<100?<h3 class="esperar">Todo bien. Por favor, espera para camarero</h3>:<h3 class="esperar">Todo bien. Tu Numero es {props.id}</h3>}
+            {!check ? <div className={"subm-button conf-button subm-"+theme} onClick={()=>{ props.sendOrder(); setCheck(true)}}>Confirmar</div>:check &&props.id<100?<h3 class="esperar">Todo bien. Por favor, espera para camarero</h3>:<h3 class="esperar">Todo bien. Tu Numero es {props.id}</h3>}
 
             </div>
         </div>

@@ -510,6 +510,47 @@ li {
 
 h3.numer {
   font-size: 34px;
-  color: #0035ff;
+  color: #40bb5e;
   transition-duration: 1s;
+}
+/*blue theme*/
+.blue {
+  background-color: #0013ff !important;
+}
+.confirm-blue {
+  border: 3px solid #4049bb !important;
+  color: #4049bb !important ;
+}
+.subm-blue{
+  background-color: #0013ff !important;
+}
+.dark {
+  background-color: #19191a !important;
+}
+.confirm-dark {
+  border: 3px solid #19191a !important;
+  color: #19191a !important ;
+}
+.subm-dark{
+  background-color: #19191a !important;
+}
+
+.centered {
+  text-align: center;
+  left: -105px;
+  top: 7px;
+  position: relative;
+}
+.centeredq {
+  text-align: center;
+  left: -94px;
+  top: 7px;
+  position: relative;
+}
+.skutitle {
+  padding: 0px 23px 0 23px;
+  text-transform: capitalize;
+}
+.desc {
+  padding: 0 23px 0 23px;
 }

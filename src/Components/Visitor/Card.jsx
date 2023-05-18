@@ -46,10 +46,12 @@ let Card = (props)=>{
         
 
     }
+    console.log('prop is '+props.state.image)
     let photo = true
-    if(props.state.image == null){
+    if(props.state.image == ""){
         photo = false
     }
+    console.log('prop is '+photo)
     return(
         <div className="card" >
             { photo == true ?
@@ -59,22 +61,22 @@ let Card = (props)=>{
         </div>
 :null}
         <div className="title">
-            <h3 ref={nameRef}>{props.state.name}</h3>
+            <h3 className='skutitle' ref={nameRef}>{props.state.name}</h3>
         </div>
         <div className="desc">
-            <p>{props.state.descr}</p>
+            <p>{props.state.desc}</p>
         </div>
         <div className="price">
-            <p ref={priceRef}>{ Number.parseFloat(props.state.price).toFixed(2)} Euro</p>
+            <p ref={priceRef}>{ Number.parseFloat(props.state.price).toFixed(2)} Euro </p>
         </div>
-        
-       {photo?!hiddenZak ? <div className={theme=="blue"?"subm-button-blue":"subm-button"} onClick={goZakaz}>Pedir</div>:null:!hiddenZak ? <div className={theme=="blue"?"subm-button-blue-centr":"subm-button-centr"} onClick={goZakaz}>Pedir</div>:null}
+      
+       {!hiddenZak && !photo ? <div className={"subm-button "+theme + " centered"} onClick={goZakaz}>Pedir</div>:!hiddenZak && photo ? <div className={"subm-button "+theme} onClick={goZakaz}>Pedir</div>:null}
+      
         <br />
        {!hidden ?<div className="counter">
-       <div className={theme=="blue"?"minus-button-blue":"minus-button"} onClick={goMinus}>-</div>
-        <div className='count'>{counter}</div>
-        <div className={theme=="blue"?"plus-button-blue":"plus-button"} onClick={goPlus}>+</div>
-        
+       <div className={!photo?"minus-button centeredq "+theme :"minus-button "+theme} onClick={goMinus}>-</div>
+        <div className={!photo?"count centeredq " :"count"}>{counter}</div>
+        <div className={!photo ?"plus-button centeredq "+theme:"minus-button "+theme} onClick={goPlus}>+</div>
         </div>: null}
 
         

@@ -22,9 +22,9 @@ let Switcher =()=>{
           <p class="lang-text">EN</p>
           </div>
             </NavLink>
-          <NavLink to={"/fr?restoran="+restoran+"&id="+stolik_id}>
-          <div class="selecting-lang"><img class="lang-flag" src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/128/Flag_of_France.png"/>
-            <p class="lang-text">FR</p>
+          <NavLink to={"/cat?restoran="+restoran+"&id="+stolik_id}>
+          <div class="selecting-lang"><img class="lang-flag" src="https://cdn4.iconfinder.com/data/icons/world-flags-12/512/Untitled-2-03-256.png"/>
+            <p class="lang-text">CAT</p>
           </div>
           </NavLink>
           {/* <NavLink to="/de">

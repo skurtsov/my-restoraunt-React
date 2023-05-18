@@ -67,7 +67,7 @@ return(
       }
       <div className="bottom-plash">
         {/* {props.orders.length >1? */}
-      <button className={theme=="blue"? "open__order__blue":"open__order"} onClick={()=>setModalActive(true)}>Confirmar</button>
+      <button className={"open__order confirm-"+theme} onClick={()=>setModalActive(true)}>Confirmar</button>
     {/*}   :
        <button className={theme=="blue"? "open__order__blue":"open__order"} onClick={()=>venAqui()}>{props.orders.length}Podoidite ko mne</button>
          */}

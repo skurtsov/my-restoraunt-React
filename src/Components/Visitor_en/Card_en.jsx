@@ -8,7 +8,10 @@ let Card_en = (props)=>{
     const [hidden, setHidden] = useState(true);
     const [hiddenZak, setHiddenZak] = useState(false);
     const [counter, updateCounter] = useState(0);
-    
+    const queryString = window.location.search;
+
+    const urlParams = new URLSearchParams(queryString);
+
   function handleIncrement() {
     updateCounter(counter + 1);
   }
@@ -47,6 +50,12 @@ let Card_en = (props)=>{
         
 
     }
+    let photo = true
+    if(props.state.image == ""){
+        photo = false
+    }
+    const theme = urlParams.get('theme')
+
     return(
         <div className="card" >
         <div className="img-prod">
@@ -75,5 +84,36 @@ let Card_en = (props)=>{
         
     </div>
     );
+//     return(
+//         <div className="card" >
+//             { photo == true ?
+//         <div className="img-prod" onClick={()=>{props.setModalImage(props.state.image);props.setShowModalImage(true)}}>
+//             <img src={props.state.image} alt="" />
+            
+//         </div>
+// :null}
+//         <div className="title">
+//             <h3 className='skutitle' ref={nameLoc}>{props.state.name_en}</h3>
+//         </div>
+//         <div className="desc">
+//             <p>{props.state.desc_en}</p>
+//         </div>
+//         <div className="price">
+//             <p ref={priceRef}>{ Number.parseFloat(props.state.price).toFixed(2)} Euro </p>
+//         </div>
+      
+//        {/* {!hiddenZak && !photo ? <div className={"subm-button "+theme + " centered"} onClick={goZakaz}>Order</div>:!hiddenZak && photo ? <div className={"subm-button "+theme} onClick={goZakaz}>Order</div>:null} */}
+//          {!hiddenZak ? <div className="subm-button" onClick={goZakaz}>Order</div>:null}
+
+//         <br />
+//        {!hidden ?<div className="counter">
+//        <div className={!photo?"minus-button centeredq "+theme :"minus-button "+theme} onClick={goMinus}>-</div>
+//         <div className={!photo?"count centeredq " :"count"}>{counter}</div>
+//         <div className={!photo ?"plus-button centeredq "+theme:"minus-button "+theme} onClick={goPlus}>+</div>
+//         </div>: null}
+
+        
+//     </div>
+//     );
 }
 export default Card_en;
